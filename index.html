@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Convert any Google Form to a standard HTML5 form with this client-side tool">
+    <title>Google Form to HTML Converter</title>
+    <link rel="icon" type="image/png" href="https://www.google.com/forms/about/images/forms-icon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="content-wrapper">
+        <div class="jumbotron text-center py-5 bg-light">
+            <h1 class="display-4">Google Form to HTML Converter</h1>
+            <p class="lead">Convert any Google Form into a standard HTML5 form</p>
+        </div>
+
+        <div class="container my-5">
+            <!-- Features Section -->
+            <div class="row features-section mb-5">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-code fa-3x mb-3 text-primary"></i>
+                            <h3 class="card-title h5">Clean HTML Output</h3>
+                            <p class="card-text">Generate clean, semantic HTML5 code that's easy to customize and integrate.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-mobile-alt fa-3x mb-3 text-primary"></i>
+                            <h3 class="card-title h5">Responsive Design</h3>
+                            <p class="card-text">Forms automatically adapt to any screen size using Bootstrap framework.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-shield-alt fa-3x mb-3 text-primary"></i>
+                            <h3 class="card-title h5">Client-Side Processing</h3>
+                            <p class="card-text">All conversion happens in your browser - no data is sent to any server.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-fetch">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="input-url" placeholder="Paste the public URL of your Google Form">
+                    <button class="btn btn-primary" type="button" id="button-fetch">
+                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                        Generate HTML Form
+                    </button>
+                </div>
+            </div>
+
+            <!-- Progress Bar (Initially Hidden) -->
+            <div id="progress-container" class="progress mb-3 d-none">
+                <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%"></div>
+            </div>
+
+            <div id="main-area" class="mt-5 d-none">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-demo" type="button">Preview</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-source" type="button">Source Code</button>
+                    </li>
+                </ul>
+
+                <div class="tab-content mt-3">
+                    <div class="tab-pane fade show active" id="tab-demo">
+                        <div id="target-demo"></div>
+                    </div>
+                    <div class="tab-pane fade" id="tab-source">
+                        <div class="alert alert-info">
+                            <strong>Note:</strong> Remember to customize the form submission handling in your implementation.
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3>HTML</h3>
+                            <button class="btn btn-outline-secondary btn-sm copy-btn" data-target="target-bootstrap-html">
+                                <i class="fas fa-copy"></i> Copy HTML
+                            </button>
+                        </div>
+                        <pre><code class="html" id="target-bootstrap-html"></code></pre>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3>JavaScript</h3>
+                            <button class="btn btn-outline-secondary btn-sm copy-btn" data-target="target-bootstrap-js">
+                                <i class="fas fa-copy"></i> Copy JavaScript
+                            </button>
+                        </div>
+                        <pre><code class="javascript" id="target-bootstrap-js"></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer bg-light">
+        <div class="container text-center">
+            <p>Project by <a href="https://github.com/yashrajnayak" target="_blank">Yashraj Nayak</a> | 
+            <a href="https://github.com/yashrajnayak/Forms2HTML" target="_blank">View on GitHub</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.8/dist/handlebars.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html> 
